@@ -10,5 +10,8 @@ class Player(object):
     def add_score(self):
         self.__score += 1
 
-    def __repr__(self):
+    def __str__(self):
         return f"Player: {self.__name} {self.__surname}"
+
+    def __repr__(self):
+        return f"<Player: name:{self.__name}, surname:{self.__surname}, score:{self.__score}>"
