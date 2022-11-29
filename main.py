@@ -1,11 +1,13 @@
+import sys
 from HelloText import print_hello_text
 from player import Player
+from Games.Lottery import Lottery
 from filework import *
-import sys
+
 
 # Parameters
 doc_name = "Switches.txt"
-sys.path.append("Games")
+
 
 def choice_func():
     print("What the game do you want to play? ")
@@ -13,11 +15,18 @@ def choice_func():
     print("2) Mini Casino")
     print("3) Snake")
     print("4) Nim")
-    choice = int(input())
+    choice = int(input("Write your choice here: "))
+    match choice:
+        case 1:
+            choice = int(input("How many players do you want to init?: "))
+            L = Lottery(choice)
+            L.init_players()
+            print(L.get_players())
 
 
 def main():
     print_hello_text()
+    choice_func()
 
 
 if __name__ == "__main__":
