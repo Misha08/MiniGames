@@ -11,7 +11,7 @@ class Id(object):
     def generate_id(self):
         for _ in range(6):
             self.__id += choice(general_collection)
-        print(self.__id)
+        return self.__id
 
 
 if __name__ == "__main__":
