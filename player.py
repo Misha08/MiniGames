@@ -1,5 +1,11 @@
+from idcreator import Id
+
+id = Id()
+
+
 class Player(object):
     def __init__(self, name: str, surname: str, score=0):
+        self.__id = id.generate_id()
         self.__name = name
         self.__surname = surname
         self.__score = score
@@ -14,4 +20,5 @@ class Player(object):
         return f"Player: {self.__name} {self.__surname}"
 
     def __repr__(self):
-        return f"<Player: name:{self.__name}, surname:{self.__surname}, score:{self.__score}>"
+        return f"<Player: id: {self.__id }, name:'{self.__name}'," \
+               f" surname:'{self.__surname}', score:{self.__score}>"
