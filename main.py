@@ -18,10 +18,18 @@ def choice_func():
     choice = int(input("Write your choice here: "))
     match choice:
         case 1:
+            print('\n' * 2)
+            Lottery.print_hello_text()
+            Lottery.print_the_rules()
+            print('\n')
             choice = int(input("How many players do you want to init?: "))
-            L = Lottery(choice)
-            L.init_players()
-            print(L.get_players())
+            number_to_find = int(input("How many numbers do you want to guess?: "))
+            number_from_find = int(input("From how many digits do you want to guess these numbers ?: "))
+            rounds = int(input("and how many rounds will there be?: "))
+            l = Lottery(choice, number_to_find, number_from_find, rounds)
+            l.init_players()
+            l.play()
+            # print(L.get_players())
 
 
 def main():
