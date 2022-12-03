@@ -17,7 +17,7 @@ class Player(object):
         self.__score += 1
 
     def __str__(self):
-        return f"Player: {self.__name} {self.__surname}"
+        return f"Player {self.__name} {self.__surname}"
 
     def __repr__(self):
         return f"<Player: id: {self.__id }, name:'{self.__name}'," \
