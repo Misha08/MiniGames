@@ -13,8 +13,16 @@ class Player(object):
     def get_info(self):
         return f"{self.__name} {self.__surname} has the {self.__score} points"
 
-    def add_score(self):
-        self.__score += 1
+    def add_score(self, multiplier=1, outp=0):
+        self.__score = self.__score + 100 * multiplier
+        if outp:
+            print(f"You have got {100 * multiplier} points")
+            print('\n')
+        else:
+            pass
+
+    def add_super_score(self):
+        self.__score += 20000
 
     def __str__(self):
         return f"Player {self.__name} {self.__surname}"
