@@ -2,20 +2,39 @@ from idcreator import Id
 
 
 # ID object
-id = Id()
+Id = Id()
 
 
 class Player(object):
 
+    '''
+
+    The Player class which describes its methods and parameters.
+
+    '''
+
     # The validate function
     @staticmethod
     def validation_of_name_and_surname(check_name: str, check_surname: str):
+        '''
+
+        Here the parameters are checked: first name and last name for emptiness,
+        in case of emptiness (equality of an empty string)
+        at least one of the parameters is returned false
+
+        '''
         return check_name and check_surname
 
     # Magic function for initialization class object
     def __init__(self, name: str, surname: str, score=0):
+        '''
+
+        :param name:
+        :param surname:
+        :param score:
+        '''
         if Player.validation_of_name_and_surname(name, surname):
-            self.__id = id.generate_id()
+            self.__id = Id.generate_id()
             self.__name = name
             self.__surname = surname
             self.__score = score

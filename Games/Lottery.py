@@ -1,15 +1,25 @@
 from random import randint, shuffle
 from player import Player
 from field_creation_algorithm import *
+from Games.Game import Game
 
 
 # Main game class
-class Lottery(object):
+class Lottery(Game):
+    '''
+
+    The Lottery Class Game
+
+    Built on the calculation of random values and the formation of fields,
+    including those with shaded guessed numbers, see the description of the function algorithms below
+
+    '''
 
     # The Validate methods
     # Validation of input data to form the playing field
     @staticmethod
     def validate_the_size_numbers(count_of_ntf: int, count_of_nff: int):
+
         '''
 
         This function checks the input dimensions, the number of search numbers and field numbers,
@@ -72,51 +82,18 @@ class Lottery(object):
         4) The number of rounds (rounds)
 
         '''
-        self.players = list()
-        self.count_of_players = count_of_players
-        self.number_to_find = number_to_find
-        self.number_from_find = number_from_find
-        self.rounds = rounds
 
-    # Function of initialization players
-    def init_players(self):
-        '''
+        if (Lottery.validate_the_size_numbers(number_to_find, number_from_find) and \
+                Lottery.validate_the_count_of_rounds_and_players(count_of_players, rounds)):
 
-        This function creates players while displaying a proposal to create certain players,
-        the number of which declines depending on the number of the player being created,
-        Then an object is created and added to the list of players
+            # Delegation
+            super().__init__(count_of_players)
+            self.number_to_find = number_to_find
+            self.number_from_find = number_from_find
+            self.rounds = rounds
+        else:
+            raise TypeError
 
-        '''
-
-        # Generate the sentences of creating the players
-        for i in range(1, self.count_of_players + 1):
-            if i == 1:
-                string_of_count = f"{i}-st"
-            elif i == 2:
-                string_of_count = f"{i}-nd"
-            else:
-                string_of_count = f"{i}-th"
-
-            # Request for first and last name
-            name = input(f"What's the name of the {string_of_count} player: ")
-            surname = input(f"What's the surname of the {string_of_count} player: ")
-
-            # creating an instance of the player class, with the given first and last name, respectively
-            player = Player(name, surname)
-            self.players.append(player)
-
-    # Function to get the player's info
-    def get_players(self):
-        '''
-
-        This function displays data about players (Displays data from the list of players), namely:
-        1) Name
-        2) Surname
-        3) Score
-
-        '''
-        for player in self.players:
-            print(player.get_info())
 
     # Functions for displaying texts
     @staticmethod
@@ -254,7 +231,3 @@ class Lottery(object):
 
         # Call the function for getting info about the players
         self.get_players()
-
-    # Magic function 'Destructor'
-    def __del__(self):
-        print("The end of the Game")
