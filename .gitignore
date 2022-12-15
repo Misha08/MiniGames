@@ -128,6 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-\Textes
-\README.md
-\Testes
+Textes/
+README.md/
+Testes/
