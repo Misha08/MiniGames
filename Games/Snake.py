@@ -265,10 +265,11 @@ class Snake(Game):
             # Scoring points for an active player
             player.add_score(length_of_snake - 1)
 
-        # The end of the Game
+        # Call the function for getting info about the players
         self.get_players()
+
+        # Close the game
         pygame.quit()
-        quit()
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 from random import randint, shuffle
-from player import Player
 from field_creation_algorithm import *
 from Games.Game import Game
+from Games.ValidExcept import ValidExcept
 
 
 # Main game class
@@ -83,7 +83,7 @@ class Lottery(Game):
 
         '''
 
-        if (Lottery.validate_the_size_numbers(number_to_find, number_from_find) and \
+        if (Lottery.validate_the_size_numbers(number_to_find, number_from_find) and\
                 Lottery.validate_the_count_of_rounds_and_players(count_of_players, rounds)):
 
             # Delegation
@@ -92,8 +92,7 @@ class Lottery(Game):
             self.number_from_find = number_from_find
             self.rounds = rounds
         else:
-            raise TypeError
-
+            raise ValidExcept
 
     # Functions for displaying texts
     @staticmethod

@@ -65,4 +65,4 @@ class Game(object):
 
     # Destructor
     def __del__(self):
-        print("The end of the Game")
+        print(f"The end of the Game \"{self.__class__.__name__}\"")

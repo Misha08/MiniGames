@@ -1,14 +1,8 @@
 import sys
 from HelloText import print_hello_text
-from player import Player
 from Games.Lottery import Lottery
 from Games.Snake import Snake
 from Games.Nim import Nim
-from filework import *
-
-
-# Parameters
-doc_name = "Switches.txt"
 
 
 # Function to select between games
@@ -16,6 +10,7 @@ def choice_func():
 
     # The list of the choice of the games
     while True:
+        print("\n")
         print("What the game do you want to play? ")
         print("1) Lottery - 1")
         print("2) Snake - 2")
@@ -44,27 +39,33 @@ def choice_func():
             rounds = int(input("and how many rounds will there be?: "))
 
             # Creating the Lottery game itself
-            l = Lottery(choice, number_to_find, number_from_find, rounds)
-            l.init_players()
-            l.play()
+            Lo = Lottery(choice, number_to_find, number_from_find, rounds)
+            Lo.init_players()
+            Lo.play()
+            Lo.__del__()
 
         elif choice == 2:
+
+            # Collecting the choosing of players in The Snake Game
             choice = int(input("How many players do you want to init?: "))
-            s = Snake(choice)
-            s.init_players()
-            s.play()
+            Sn = Snake(choice)
+            Sn.init_players()
+            Sn.play()
+            Sn.__del__()
 
         elif choice == 3:
             print("Do you play with players?: ")
             print("1 and other values - play with players")
             print("0 - don't play with players")
             choice = int(input("Type here: "))
-            n = Nim(choice)
+            Ni = Nim(choice)
             if choice:
-                n.init_players()
-                n.play()
+                Ni.init_players()
+                Ni.play()
             else:
-                n.play()
+                Ni.play()
+
+            Ni.__del__()
 
 
 # The main function

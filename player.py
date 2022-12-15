@@ -1,5 +1,5 @@
 from idcreator import Id
-
+from Games.ValidExcept import ValidExcept
 
 # ID object
 Id = Id()
@@ -23,7 +23,7 @@ class Player(object):
         at least one of the parameters is returned false
 
         '''
-        return check_name and check_surname
+        return check_name.replace(" ", "") and check_surname.replace(" ", "")
 
     # Magic function for initialization class object
     def __init__(self, name: str, surname: str, score=0):
@@ -39,7 +39,7 @@ class Player(object):
             self.__surname = surname
             self.__score = score
         else:
-            pass
+            raise ValidExcept
 
     # Get result function
     def get_info(self):

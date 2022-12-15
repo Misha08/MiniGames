@@ -48,7 +48,9 @@ class Nim(Game):
             player = Player(name, surname)
             self.players[i - 1] = player
 
+
     # Play with the computer
+    @staticmethod
     def play_1(self):
         count = int(input("Initial number of stones in the first pile: "))
         count2 = int(input("Initial number of stones in the second pile: "))
@@ -180,6 +182,7 @@ class Nim(Game):
                               '0')
                         print(f"The first player {self.players[0]} wins!")
                         self.players[0].add_super_score()
+
                         break
 
                     else:
@@ -215,8 +218,10 @@ class Nim(Game):
 
                             break
 
+        # Call the function for getting info about the players
         self.get_players()
 
+    # The main logical play function
     def play(self):
         if self.checking(self.choice):
             self.play_2()
@@ -224,6 +229,7 @@ class Nim(Game):
             self.play_1()
 
 
+# The Entry point for testing
 if __name__ == "__main__":
     n = Nim(1)
     n.init_players()
